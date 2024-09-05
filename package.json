@@ -1,0 +1,20 @@
+{
+  "name": "idk",
+  "version": "1.0.0",
+  "description": "example",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "async-mutex": "^0.5.0",
+    "express": "^4.19.2",
+    "puppeteer": "^22.11.0",
+    "@sparticuz/chromium": "^123.0.0",
+    "puppeteer-extra": "^3.3.6",
+  },
+  "engines": {
+    "node": ">=v18.0.0"
+  },
+  "license": "MIT"
+}
