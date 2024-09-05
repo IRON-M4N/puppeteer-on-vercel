@@ -1,13 +1,14 @@
 const express = require('express');
-const puppeteerExtra = require('puppeteer-extra');
+const puppeteerExtra = require('puppeteer-extra'); //need to install puppeteer or puppeteer core (no need to import it)
 const chromium = require('@sparticuz/chromium');
 const {
   Mutex
-} = require('async-mutex');
+} = require('async-mutex'); //to queue multiple requests
 
 const app = express();
 const port = 3000;
 const lock = new Mutex();
+const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 app.get('/ss', async (req, res) => {
   const {
@@ -27,7 +28,7 @@ app.get('/ss', async (req, res) => {
         '--no-sandbox', // thus too
       ],
       defaultViewport: chromium.defaultViewport,
-      executablePath: await chromium.executablePath(),
+      executablePath: await chromium.executablePath(), //these stuff is in the docs of @sparticuz/chromium 
       headless: chromium.headless,
       ignoreHTTPSErrors: true,
     });
@@ -36,7 +37,7 @@ app.get('/ss', async (req, res) => {
     await page.goto(url, {
       waitUntil: 'networkidle2'
     });
-    
+    await wait(3500);
     const img = await page.screenshot({
       fullPage: true
     });
