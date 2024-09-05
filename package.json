@@ -11,10 +11,10 @@
     "express": "^4.19.2",
     "puppeteer": "^22.11.0",
     "@sparticuz/chromium": "^123.0.0",
-    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra": "^3.3.6"
   },
   "engines": {
-    "node": ">=v18.0.0"
+    "node": ">=18.0.0"
   },
   "license": "MIT"
 }
